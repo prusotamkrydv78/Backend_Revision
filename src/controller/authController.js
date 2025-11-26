@@ -1,6 +1,3 @@
-
-
-
 import User from "../model/userModel.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
@@ -9,8 +6,8 @@ import { generateAccessToken, generateRefreshToken } from "../utils/generateToke
 const register = async (req, res) => {
     const { name, password, email } = req.body;
 
-    const hashed = await bcrypt.hash(password, 10);
-    await User.create({ name, password: hashed, email });
+    // Password will be hashed by Mongoose pre-save hook
+    await User.create({ name, password, email });
 
     res.json({ message: "Registered successfully!" });
 };
