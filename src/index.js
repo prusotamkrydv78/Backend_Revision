@@ -11,7 +11,7 @@ connectDB();
 
 // CORS configuration to allow frontend access
 app.use(cors({
-    origin: 'http://localhost:5173', // Vite default port
+    origin: ['http://localhost:5173','https://backendrevision.vercel.app/'], // Vite default port
     credentials: true // Allow cookies to be sent
 }));
 
